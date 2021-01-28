@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
 import './App.css';
 
 function App() {

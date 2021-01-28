@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 function LoginPage() {
     const [formValues, setFormValues] = useState({
@@ -16,8 +17,11 @@ function LoginPage() {
 
     const login = e => {
         e.preventDefault();
-        
-    }
+        axios
+        .post('http://localhost:5000/api/login')
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    };
 
     return (
         <div>
@@ -29,8 +33,10 @@ function LoginPage() {
                 <label htmlFor="password">password</label>
                 <input 
                         id="password" 
+                        type="password"
                         value={formValues.password} 
                         onChange={handleChanges} />
+                <button>Login</button>
             </form>
         </div>
     );
