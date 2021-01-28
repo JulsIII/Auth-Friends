@@ -18,7 +18,7 @@ function LoginPage() {
     const login = e => {
         e.preventDefault();
         axios
-        .post('http://localhost:5000/api/login')
+        .post('http://localhost:5000/api/login', formValues)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     };
@@ -29,12 +29,14 @@ function LoginPage() {
                 <label htmlFor="username">username</label>
                 <input  id="username"
                         value={formValues.username}
+                        name="username"
                         onChange={handleChanges} />
                 <label htmlFor="password">password</label>
                 <input 
                         id="password" 
                         type="password"
                         value={formValues.password} 
+                        name="password"
                         onChange={handleChanges} />
                 <button>Login</button>
             </form>
